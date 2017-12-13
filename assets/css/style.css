@@ -1,0 +1,10 @@
+#Hangman div {
+	width: 100px;
+	height: 100px;
+	float: left;
+	border: solid #000;
+}
+
+body{
+	background: #f0f0f0;
+}
