@@ -59,8 +59,10 @@ function clearPick(){
 
 function generatePick(){
 	var hangDisplay = document.getElementById("Hangman");
-		hangDisplay.HTML = ""; //FOR SOME REASON THIS DOESN"T WORK AND I HAVE TO CREATE A BUTTON TO CLEAR
-		hangDisplay.innerHTML = ""; //FOR SOME REASON THIS DOESNT WORK AND I HAVE TO CREATE A BUTTON TO CLEAR
+		hangDisplay.HTML = null;
+		hangDisplay.innerHTML = null;
+		displayWord =[]; //FOR SOME REASON THIS DOESN"T WORK AND I HAVE TO CREATE A BUTTON TO CLEAR
+		charFailArray = []; //FOR SOME REASON THIS DOESNT WORK AND I HAVE TO CREATE A BUTTON TO CLEAR
 	var computerPick = listBlackMovies[Math.floor(Math.random() * listBlackMovies.length)];
 	var upperComputerPick = computerPick.toUpperCase();	
 		for (var i =0; i < upperComputerPick.length; i++){

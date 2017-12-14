@@ -11,11 +11,11 @@
 
   </head>
   <body>
-  	<div class="jumbotron">
-		<div class="container-fluid">
-			<h1> Hangman Game</h1>
-      <button onclick="generatePick()" class="button">Click to generate hangman choice</button>
-      <button onclick="clearPick()" class="button">Clear</button>
+  	<div class="jumbotron center">
+		<div class="container">
+			<h1> Hangman Game<br><small> subtext to explain the game</small></h1>
+      <button type="button" onclick="generatePick()" class="btn btn-primary btn-lg">Click to generate hangman choice</button>
+      <button type="button" onclick="clearPick()" class="btn btn-success btn-lg">Clear</button>
 
       <h2>You just typed <span id="user-text"><strong>...Nothing.</strong></span></h2>
 		</div>	
