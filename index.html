@@ -27,7 +27,7 @@
         <center><small><h4>most recent guess:   <span id="user-text"><strong>__________.</strong></span></h4></small></center>
   		</div>	
     	</div>
-      <div class="cointainer-fluid focus" id="successText"></div>
+      <div class="cointainer-fluid" id="successText"></div>
       <div class="cointainer-fluid focus">
  <img id="imgHint" src="https://vignette.wikia.nocookie.net/marveldatabase/images/e/e1/The_Marvel_Universe.png/revision/latest?cb=20110513164401" class="sideimg">
       </div>
@@ -36,12 +36,15 @@
           <button type="button" onclick="generatePick()" class="btn btn-primary btn-lg">Click to generate hangman choice</button>
           <button type="button" onclick="clearPick()" class="btn btn-success btn-lg">Clear</button>
         </div>
-        <center>Current Word</center>
         <div id="Winner" class="row"> Wins:
         </div>
+        <center>Current Word</center>
         <div class="row">
-        <span id="Hangman" class="row">
+        <span id="messagePick" class="row">
           Start the Game!
+        </span>
+        <span id="Hangman" class="row">
+          
         </span>
         </div>
         <div id="badGuess" class="row">

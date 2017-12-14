@@ -80,8 +80,6 @@ function generatePick(){
 	var hangDisplay = document.getElementById("Hangman");
 		hangDisplay.HTML = null;
 		hangDisplay.innerHTML = null;
-		 //FOR SOME REASON THIS DOESN"T WORK AND I HAVE TO CREATE A BUTTON TO CLEAR
-		 //FOR SOME REASON THIS DOESNT WORK AND I HAVE TO CREATE A BUTTON TO CLEAR
 
 		successPicks = [];
 		failPicks = [];
@@ -92,6 +90,9 @@ function generatePick(){
 		spaceCounter = 0;
 		totalCharSuccess = 0;
 		totalGuesses =15;
+		successText.innerHTML = null;
+		messagePick.innerHTML= null;
+
 		computerPick = StevenUniverseChar[Math.floor(Math.random() * StevenUniverseChar.length)];
 		console.log("this is the index of computerPick to figure out img Pick :"+StevenUniverseChar.indexOf(computerPick));
 		displayImg = StevenUniverseImg[StevenUniverseChar.indexOf(computerPick)];
@@ -121,7 +122,7 @@ function generatePick(){
 			hangDisplay.appendChild(newLetterDiv);
 		};
 
-	alert(computerPick);
+	//alert(computerPick);
 	function imgHint() {
 		document.querySelector("#imgHint").src = "assets/images/"+displayImg;
 		}
@@ -215,15 +216,14 @@ function generatePick(){
 							console.log("all the characters matched successfully:" + totalCharSuccess);
 							console.log(displayWord);
 							if (charSuccess > 1){
-								alert("Yass Queen, you matched "+charSuccess+" letters!");
+								message = "Yass Queen, you matched "+charSuccess+" letters!";
 							}
 							else if (charSuccess > 0){
-								alert("Yass Queen, you matched "+charSuccess+" letter!");
+								message = "Yass Queen, you matched "+charSuccess+" letter!";
 							}
 							else {
-								alert("Darn Girl, try again.");
+								message = "Darn Girl, try again.";
 								failPicks.push(userPick);
-
 							}
 
 							//if there are only spaces left in the word, show a message that says congratulations and press space bar to restart game.
@@ -232,7 +232,12 @@ function generatePick(){
 							// 	if displ	
 							// }
 							console.log("this is the array of failed positions:" + charFailArray);
-							
+							function messagePick() {
+								document.querySelector("#messagePick").innerHTML = message;
+							}
+
+							messagePick();
+
 
 							//Total Character count - the number of spaces found should equal the number of successful characters found
 
@@ -279,7 +284,7 @@ function generatePick(){
 					};
 
 				if (totalGuesses < 0){
-					alert("Sorry, you've ran out of guesses.")
+					alert("Sorry, you've ran out of guesses. The answer was: "+ computerPick);
 					clearPick();	
 				}
 
@@ -288,6 +293,13 @@ function generatePick(){
 					userWins = userWins +1;
 					console.log("Youve Won "+ userWins+" times");
 					console.log(emptyCharacters - spaceCounter == totalCharSuccess);
+							function successText() {
+								document.querySelector("#successText").innerHTML =  computerPick;
+							}
+
+							successText();
+							Winner();
+
 					};
 
 

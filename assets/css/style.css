@@ -20,6 +20,9 @@ body{
 
 }
 
+.imgHint{
+	width: 100%;
+}
 
 #Hangman{
 	width:100%;
