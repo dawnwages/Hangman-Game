@@ -4,30 +4,57 @@
     <meta charset="UTF-8">
     <title>Hangman Game</title>
 
+
     <!-- BOOTSTRAP v3 minified -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- MY CSS -->
+
+        <!-- MY CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+
 
   </head>
   <body>
-  	<div class="jumbotron center">
-		<div class="container">
-			<h1> Hangman Game<br><small> subtext to explain the game</small></h1>
-      <button type="button" onclick="generatePick()" class="btn btn-primary btn-lg">Click to generate hangman choice</button>
-      <button type="button" onclick="clearPick()" class="btn btn-success btn-lg">Clear</button>
+      <main>
+      <img src="https://t00.deviantart.net/FSHG2lonS_eSw7NMzG23pdSMBKQ=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/1ca0/th/pre/f/2016/129/6/2/those_who_avenge_us_by_tfprime1114-d9cxbkh.png" class="bannerlogo">
+      <img src="http://www.mightycrusaders.net/images/hangman_title_lg.gif" class="bannerimg">
 
-      <h2>You just typed <span id="user-text"><strong>...Nothing.</strong></span></h2>
-		</div>	
-  	</div>
-    <div class="cointainer-fluid">
-      <span id="Hangman">
-        Start the Game!
-      </span>
-      <div id="badGuess">
-        
+    	<div class="jumbotron center top">
+
+  		<div class="container">
+  			<h1> Hangman Game<br><small> subtext to explain the game</small></h1>
+
+
+        <h2>You just typed <span id="user-text"><strong>...Nothing.</strong></span></h2>
+  		</div>	
+    	</div>
+      <div class="cointainer-fluid focus">
+ <img src="https://vignette.wikia.nocookie.net/marveldatabase/images/e/e1/The_Marvel_Universe.png/revision/latest?cb=20110513164401" class="sideimg">
       </div>
-    </div>
+      <div class="container-fluid focus">
+        <div class="row">
+          <button type="button" onclick="generatePick()" class="btn btn-primary btn-lg">Click to generate hangman choice</button>
+          <button type="button" onclick="clearPick()" class="btn btn-success btn-lg">Clear</button>
+        </div>
+        <center>Current Word</center>
+        <div class="row">
+        <div id="Winner"> Wins:
+        </div>
+        </div>
+        <div class="row">
+        <span id="Hangman">
+          Start the Game!
+        </span>
+        </div>
+        <div id="badGuess">
+        </div>
+        <div id="guessesLeft">
+        </div>
+        </div>
+      </div>
+    </main>
+    <main>
+        <div>
+    </main>
     <script src="assets/javascript/hangman.js"></script>
    <!-- <script src="hangman.js"></script> -->
     

@@ -1,3 +1,7 @@
+div {
+	border: solid #000;
+}
+
 #Hangman div {
 	width: 30px;
 	height: 30px;
@@ -7,10 +11,50 @@
 	padding-left: 7px;
 }
 
+.top {
+	padding-top: 200px;
+	position: right;
+}
+
 body{
 	background: #f0f0f0;
+
+}
+
+
+#Hangman{
+	width:100%;
 }
 
 #center{
 	text-align: center;
+}
+
+.sideimg{
+	width: 100%;
+}
+
+.bannerimg {
+	position: absolute;
+	transform: rotate(-7deg);
+}
+
+.bannerlogo{
+	position: absolute;
+	padding-left: 450px;
+	padding-top: 50px;
+	z-index:+1;
+	height: 250px;
+}
+
+main{
+	width: 60%;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+.focus{
+	height: 200px;
+	width: 50%;
+	float: left;
 }
