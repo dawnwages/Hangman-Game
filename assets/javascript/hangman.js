@@ -26,7 +26,7 @@
 
 //Go back to step one
 
-
+//Setting up my variables
 var listBlackMovies = ["Do The Right Thing", "Shaft", "Waiting to Exhale", "Love Jones", "The Color Purple", "John Q", "Moonlight", "SuperFly"];
 var randomComputerPick; 
 var successPicks = [];
@@ -35,25 +35,26 @@ var allPicks = [];
 var computerWord = [];
 var displayWord = [];
 
+//The computer automatically picks one of the objects from the list as soon as it starts. 
+//TODO: Change this to onclick so you don't have to refresh the page to enjoy another game
 var computerPick = listBlackMovies[Math.floor(Math.random() * listBlackMovies.length)];
-console.log(computerPick);
-console.log('-------------------');
+		console.log(computerPick);
+		console.log('-------------------');
 
-var upperComputerPick = computerPick.toUpperCase();
-console.log(upperComputerPick);
-console.log('-------------------');
-// Make computer pick an array
+var upperComputerPick = computerPick.toUpperCase(); //make it uppercase so it's easier to compare
+		console.log(upperComputerPick);
+		console.log('-------------------');
+		
+// spits out empty array before the key press
+// console.log(computerWord);
+// console.log('-------------------');
+// console.log(displayWord);
+// console.log('-------------------');
 
-
-
-console.log(computerWord);
-console.log('-------------------');
-console.log(displayWord);
-console.log('-------------------');
-
-var emptyCharacters = upperComputerPick.length;
-console.log(emptyCharacters);
-console.log('-------------------');
+//This displays like the count of characters but it doesn't really add to anything. It should probably be deleted.
+//var emptyCharacters = upperComputerPick.length;
+//console.log(emptyCharacters);
+//console.log('-------------------');
 
 
 
@@ -68,9 +69,10 @@ console.log('-------------------');
 
 
 // }
+//This just shows the first place there is a space that I was trying to 
+//console.log("where are the spaces "+ upperComputerPick.indexOf(" "));
 
-console.log("where are the spaces "+ upperComputerPick.indexOf(" "));
-
+//THIS IS THE GOOD STUFF IT CREATES THE ARRAY FOR THE DISPLAY AND PUTS THE COMPUTER PICK IN AN ARRAY 
 	for (var i =0; i < upperComputerPick.length; i++){
 		if( upperComputerPick[i] === ' '){
 			computerWord.push(upperComputerPick[i]);
@@ -82,24 +84,38 @@ console.log("where are the spaces "+ upperComputerPick.indexOf(" "));
 		}
 	} 
 
+//Display the hangman game as soon as you define displayWord so it doesn't show up after the first guess
+var hangDisplay = document.getElementById("Hangman");
+hangDisplay.innerHTML = "";
+	for (var i = 0; i < displayWord.length; i++){
 
+		var newLetterDiv = document.createElement('div');
 
+		newLetterDiv.innerHTML= displayWord[i];
+
+		hangDisplay.appendChild(newLetterDiv);
+	}
+
+//Definitely need this userDisplay defines where key text will show up.
 var userDisplay = document.getElementById("user-text")
 
+//Ok so this is when you press any key on your keyboard
+//TODO: Do you want to restrick it to only alpha numeric keys?
 document.onkeyup = function(event) {
-	var userPick = event.key.toUpperCase();
-	userDisplay.textContent = userPick;
+	var userPick = event.key.toUpperCase(); //This is where we define what the user picked and automatically makes it uppercase
+	userDisplay.textContent = userPick; // changes what is in the "user-text" span to whatever the user has just picked
 	console.log(event.key);
 	console.log('-------------------');
-	console.log(allPicks);
+	console.log(allPicks); // empty because I havent pushed content to allPicks array yet
 
-	console.log("this is the index location of previous pick versus current user pick: " + allPicks.indexOf(userPick));
+	//if the index of this means we're checking to see if we've guessed that question 
+	//console.log("this is the index location of previous pick versus current user pick: " + allPicks.indexOf(userPick));
 	
-	var userPick = event.key.toUpperCase();
-	userDisplay.textContent = userPick;
-	console.log(event.key);
-	console.log('-------------------');
-	console.log(allPicks);
+	// var userPick = event.key.toUpperCase();
+	// userDisplay.textContent = userPick;
+	// console.log(event.key);
+	// console.log('-------------------');
+	// console.log(allPicks);
 
 	console.log("this is the index location of previous pick versus current user pick: " + allPicks.indexOf(userPick));
 	
