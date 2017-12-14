@@ -34,7 +34,7 @@
 //Go back to step one
 
 //Setting up my variables
-var listBlackMovies = ["Do The Right Thing", "Shaft", "Waiting to Exhale", "Love Jones", "The Color Purple", "John Q", "Moonlight", "SuperFly"];
+//var theList = StevenUniverseChar;
 var randomComputerPick; 
 var successPicks = [];
 var failPicks = [];
@@ -46,6 +46,7 @@ var spaceCounter = 0;
 var totalCharSuccess = 0;
 var userWins = 0;
 var totalGuesses = 15;
+var displayImg;
 //var emptyCharacters=;
 //The computer automatically picks one of the objects from the list as soon as it starts. 
 //TODO: Change this to onclick so you don't have to refresh the page to enjoy another game use the spacebar
@@ -72,6 +73,7 @@ function clearPick(){
 		spaceCounter = 0;
 		totalCharSuccess = 0;
 		totalGuesses =15;
+		displayImg="";
 };
 
 function generatePick(){
@@ -90,7 +92,10 @@ function generatePick(){
 		spaceCounter = 0;
 		totalCharSuccess = 0;
 		totalGuesses =15;
-		computerPick = marvelCharacters[Math.floor(Math.random() * marvelCharacters.length)];
+		computerPick = StevenUniverseChar[Math.floor(Math.random() * StevenUniverseChar.length)];
+		console.log("this is the index of computerPick to figure out img Pick :"+StevenUniverseChar.indexOf(computerPick));
+		displayImg = StevenUniverseImg[StevenUniverseChar.indexOf(computerPick)];
+		console.log(displayImg);
 		upperComputerPick = computerPick.toUpperCase();	
 		for (var i =0; i < upperComputerPick.length; i++){
 			if( upperComputerPick[i] === ' '){
@@ -117,9 +122,11 @@ function generatePick(){
 		};
 
 	alert(computerPick);
-	
+	function imgHint() {
+		document.querySelector("#imgHint").src = "assets/images/"+displayImg;
+		}
 
-
+	imgHint()
 
 				var upperComputerPick = computerPick.toUpperCase();
 				console.log( computerPick + upperComputerPick);
@@ -253,7 +260,12 @@ function generatePick(){
 							}
 
 							Winner();
-					
+
+							function guessesLeft() {
+								document.querySelector("#guessesLeft").innerHTML = "Guesses remaining: " + totalGuesses;
+							}
+
+							guessesLeft();					
 
 				var hangDisplay = document.getElementById("Hangman");
 				hangDisplay.innerHTML = "";
@@ -284,6 +296,69 @@ function generatePick(){
 
 };
 
+StevenUniverseChar = [
+"Rose Quartz",
+"Pearl",
+"Amethyst",
+"Ruby",
+"Sapphire",
+"Peridot",
+"Bismuth",
+"Yellow Diamond",
+"Blue Diamond",
+"Pink Diamond",
+"Hessonite",
+"Aquamarine",
+"Topazes",
+"Peridot",
+"Jasper",
+"Holy Blue Agate",
+"Zircons",
+"Centipeetle Mother",
+"Garnet",
+"Opal",
+"Sugilite",
+"Alexandrite",
+"Rainbow Quartz",
+"Sardonyx",
+"Stevonnie",
+"Smoky Quartz",
+"Malachite",
+"Fluorite",
+"Rhodonite"]
+
+StevenUniverseImg = [
+"Rose_Quartz_-_With_Weapon.png",
+"Current_Pearl_Request.png",
+"Jfek_New_Gen.png",
+"Ruby_-_Weaponized.png",
+"Dan_Sapphy_ur_Freezies_with_Gem.png",
+"Smol_Peridot_by_Lenhi.png",
+"Bismuth_by_Lenhi.png",
+"That_Will_Be_All_YD_with_Cloak_by_Lenhi.png",
+"SomberDiamond_by_Koo.png",
+"Pink_diamond_mural_transparent.png",
+"Hessonite_Body_Frame.png",
+"AquamarineRibbon_by_Koo.png",
+"Topaz_(fusion).png",
+"Squaridot_GrumpFace_Official.png",
+"JASPRUPTION.png",
+"HollyBluesComing2GetYou.png",
+"Zircons_(Blue_&_Yellow).png",
+"Centipeetle_Mother_Big_PNG.png",
+"GarnetByKmes.png",
+"Opal_Gen_3_by_Lenhi.png",
+"Sugilite_-_Cry_for_Help_with_Flail.png",
+"Alexandrite_New_Regen_by_Lenhi.png",
+"Rainbow_Quartz_by_Lenhi.png",
+"Sardonyx_by_Lenhi.png",
+"Stevonnie_with_Sword_and_Shield_by_Lenhi.png",
+"Smoky_Quartz_2_by_Cocoa.png",
+"Malachite_Lenhi.png",
+"Fluorite_1289.png",
+"RhodoniteKPRF-_by_DisneyBoy16.png"]
+
+var listBlackMovies = ["Do The Right Thing", "Shaft", "Waiting to Exhale", "Love Jones", "The Color Purple", "John Q", "Moonlight", "SuperFly"];
 
 marvelCharacters = [
   "3-D Man",

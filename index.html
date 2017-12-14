@@ -15,20 +15,21 @@
   </head>
   <body>
       <main>
-      <img src="https://t00.deviantart.net/FSHG2lonS_eSw7NMzG23pdSMBKQ=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/1ca0/th/pre/f/2016/129/6/2/those_who_avenge_us_by_tfprime1114-d9cxbkh.png" class="bannerlogo">
+      <img src="https://vignette.wikia.nocookie.net/uncle-grandpa/images/3/36/Crystal_Gems.png/revision/latest?cb=20160909141009" class="bannerlogo">
       <img src="http://www.mightycrusaders.net/images/hangman_title_lg.gif" class="bannerimg">
 
     	<div class="jumbotron center top">
 
   		<div class="container">
-  			<h1> Hangman Game<br><small> subtext to explain the game</small></h1>
+  			<h1> Hangman Game<br><small> STEVEN UNIVERSE EDITION</small></h1>
+    <p>If you're not a Steven Universe fan, you're mssing out </p>
 
-
-        <h2>You just typed <span id="user-text"><strong>...Nothing.</strong></span></h2>
+        <center><small><h4>most recent guess:   <span id="user-text"><strong>__________.</strong></span></h4></small></center>
   		</div>	
     	</div>
+      <div class="cointainer-fluid focus" id="successText"></div>
       <div class="cointainer-fluid focus">
- <img src="https://vignette.wikia.nocookie.net/marveldatabase/images/e/e1/The_Marvel_Universe.png/revision/latest?cb=20110513164401" class="sideimg">
+ <img id="imgHint" src="https://vignette.wikia.nocookie.net/marveldatabase/images/e/e1/The_Marvel_Universe.png/revision/latest?cb=20110513164401" class="sideimg">
       </div>
       <div class="container-fluid focus">
         <div class="row">
@@ -36,18 +37,17 @@
           <button type="button" onclick="clearPick()" class="btn btn-success btn-lg">Clear</button>
         </div>
         <center>Current Word</center>
-        <div class="row">
-        <div id="Winner"> Wins:
-        </div>
+        <div id="Winner" class="row"> Wins:
         </div>
         <div class="row">
-        <span id="Hangman">
+        <span id="Hangman" class="row">
           Start the Game!
         </span>
         </div>
-        <div id="badGuess">
+        <div id="badGuess" class="row">
         </div>
-        <div id="guessesLeft">
+        <div id="guessesLeft" class="row">
+          <p> You get 15 guesses total </p>
         </div>
         </div>
       </div>
