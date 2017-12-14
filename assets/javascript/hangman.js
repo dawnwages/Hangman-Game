@@ -34,9 +34,10 @@ var failPicks = [];
 var allPicks = [];
 var computerWord = [];
 var displayWord = [];
+var charFailArray = [];
 
 //The computer automatically picks one of the objects from the list as soon as it starts. 
-//TODO: Change this to onclick so you don't have to refresh the page to enjoy another game
+//TODO: Change this to onclick so you don't have to refresh the page to enjoy another game use the spacebar
 var computerPick = listBlackMovies[Math.floor(Math.random() * listBlackMovies.length)];
 		console.log(computerPick);
 		console.log('-------------------');
@@ -84,6 +85,10 @@ var upperComputerPick = computerPick.toUpperCase(); //make it uppercase so it's 
 		}
 	} 
 
+	for (var i = 0; i < upperComputerPick.length; i++){
+		charFailArray.push(i);
+	}
+
 //Display the hangman game as soon as you define displayWord so it doesn't show up after the first guess
 var hangDisplay = document.getElementById("Hangman");
 hangDisplay.innerHTML = "";
@@ -102,6 +107,8 @@ var userDisplay = document.getElementById("user-text")
 //Ok so this is when you press any key on your keyboard
 //TODO: Do you want to restrick it to only alpha numeric keys?
 document.onkeyup = function(event) {
+	
+
 	var userPick = event.key.toUpperCase(); //This is where we define what the user picked and automatically makes it uppercase
 	userDisplay.textContent = userPick; // changes what is in the "user-text" span to whatever the user has just picked
 	console.log(event.key);
@@ -120,24 +127,32 @@ document.onkeyup = function(event) {
 	console.log("this is the index location of previous pick versus current user pick: " + allPicks.indexOf(userPick));
 	
 	
-
+	//this checks to see if you've picked this product before
 	if (allPicks.indexOf(userPick) > 0){
 		alert("You've already picked this character.");
 	}
 	else{
-		var charSuccess = 0;
+		var charSuccess = 0; //charSuccess will count the number of times that letter is in the code and counts it as one round of success.
+		//this is important because if charSuccess is greater than zero then its its a successful round, and if it less than zero you didn't match any letters
+		
 		for (var i = 0; i < upperComputerPick.length; i++){
 			
 			if (userPick == upperComputerPick[i]){
-				charSuccess = charSuccess +1;
-				displayWord[i] = userPick;
+				charSuccess = charSuccess +1; //everytime you successfully match a letter in each placement then it counts it. 
+				//It needs to reset to zero each guess.
+				displayWord[i] = userPick; //set that place in the array to what was guessed.
+				// charFailArray = charFailArray.splice(i,1);
+				// i--;
 			}
 
-			else {
-				
+			else { 
+				// console.log("this is the array of failed positions:" + charFailArray);
+				//charFailArray = charFailArray.filter( function(){i=i});
 			}
 			
 		}
+
+
 		console.log("this is how many letters you've just matched successfully:" + charSuccess);
 		console.log(displayWord);
 		if (charSuccess > 1){
@@ -151,9 +166,16 @@ document.onkeyup = function(event) {
 			failPicks.push(userPick);
 
 		}
+
+		//if there are only spaces left in the word, show a message that says congratulations and press space bar to restart game.
+		// for (var i = 0; i < upperComputerPick.length; i++){
+
+		// 	if displ	
+		// }
+		console.log("this is the array of failed positions:" + charFailArray);
 	}
 
-	allPicks.push(userPick);
+	allPicks.push(userPick); //push userpick at the end because you don't want it to mess up your index of allPicks to see if you've picked the letter before
 	console.log("these are failed picks : "+ failPicks);
 	index = upperComputerPick.indexOf(userPick);
 	console.log("this is the location of the user pick in the secret word:" + index);
@@ -161,9 +183,11 @@ document.onkeyup = function(event) {
 	repeat = allPicks.indexOf(userPick)
 	console.log("this is the location of the user pick in all of the picks you've done before:" + repeat);
 
+	function updateScore() {
+		document.querySelector("#badGuess").innerHTML = "Fail Picks: " + failPicks;
+	}
 
-
-
+	updateScore();
 
 
 	// for (var i = 0; i < upperComputerPick.length; i++){
